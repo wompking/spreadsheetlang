@@ -7,6 +7,7 @@ A Psi-inspired and spreadsheet-like esoteric programming language.
 * [Execution Model](https://github.com/wompking/spreadsheetlang/#execution-model)
 * [Syntax](https://github.com/wompking/spreadsheetlang/#syntax)
 * [Expressions and Operators](https://github.com/wompking/spreadsheetlang/#expressions-and-operators)
+* [Examples](https://github.com/wompking/spreadsheetlang/#examples)
 
 ## Introduction
 SPREADSHEET is a Psi-inspired and spreadsheet-like esolang. Like [Hat Trick](https://github.com/wompking/tailorlang), it is evaluated using RPN. File extensions for SPREADSHEET programs are `.sprd`, and SPREADSHEET comments begin with `//`. SPREADSHEET, unlike [Tailor](https://github.com/wompking/tailorlang), is not forgiving, but it basically never throws errors anyways.
@@ -79,7 +80,7 @@ The following is a table of operators in SPREADSHEET. If some behaviour is not s
 | `~` | 1 | Shorthand for `1 x -` on only numbers. |
 | `$` | 1 | Returns the value of the cell at the input tuple; evaluates it if needed. |
 | `x`, `y` | 1 | Gets x-coordinate or y-coordinate of the input tuple. |
-| `$` | 1 | Returns the value of the cell at the input tuple; evaluates it if needed. |
+| `$` | 1 | Returns the value of the cell at the input tuple; evaluates it if needed. If the cell has no value, it returns `None`. |
 | `C` | 2 | Coerces the type of `A` to the type of `B`; see table below. |
 | `T` | 2 | Builds a tuple from two numbers. |
 | `X` | 3 | Python `C[A:B]` for strings. |
@@ -105,3 +106,14 @@ Here is a table of values for the `C` operator:
 | None | String | `"None"` |
 | None | Tuple | `(0,0)` |
 | None | None | `None` |
+
+## Examples
+
+Here is a sample cat program:
+
+```
+I(0,1) //no equation
+S(0,2): (0,0) <= (0,1) $
+```
+
+First, the `S` command evaluates. The first part of the `S` command is the position expression, which here is a single value and thus evaluates immediately. The second part of the command is the value expression, which here is a `$` operator called on a tuple. This gets the value at `(0,1)`, which has not been evaluated yet. Since this coordinate has an `I` command attached to it, it gets input from the user. When the user gives input, the command at `(0,1)` evaluates with a string. Then, since the value at `(0,1)` has evaluated, the `S` command at `(0,2)` evaluates. This sets the value at `(0,0)` to be whatever the user gave in. The program outputs what the user gave in, and then halts because no equations (apart from the one at `(0,0)`, which is ignored) have changed.
