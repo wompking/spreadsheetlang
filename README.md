@@ -90,18 +90,18 @@ Here is a table of values for the `C` operator:
 | From | To | Value |
 |----------|-------|----------|
 | Number | Number | Self-explanatory. |
-| Number | String | "<number>" |
-| Number | Tuple | (<number>,<number>) |
-| Number | None | None |
+| Number | String | `"<number>"` |
+| Number | Tuple | `(<number>,<number>)` |
+| Number | None | `None` |
 | String | Number | Parses string into a number, base 10. |
 | String | String | Self-explanatory. |
 | String | Tuple | Parses string into a tuple. |
-| String | None | None |
+| String | None | `None` |
 | Tuple | Number | Gets the magnitude of the tuple. |
-| Tuple | String | "<tuple>" |
+| Tuple | String | `"<tuple>"` |
 | Tuple | Tuple | Self-explanatory. |
-| Tuple | None | None |
-| None | Number | 0 |
-| None | String | "None" |
-| None | Tuple | (0,0) |
-| None | None | None |
+| Tuple | None | `None` |
+| None | Number | `0` |
+| None | String | `"None"` |
+| None | Tuple | `(0,0)` |
+| None | None | `None` |
