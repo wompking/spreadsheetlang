@@ -18,6 +18,7 @@ The formulas have a *command* attached to them, which is either `V`, `S`, `F`, o
 * The `F` command takes two expressions, and sets the cell denoted by the first expression to a string containing a valid line of SPREADSHEET code.
 * The `S` command sets the cell denoted by the first expression to a `V` command containing the evaluated value of the second expression.
 * The `I` command takes input from the user.
+
 All changes to cells are applied at the end of the tick, in the order the `V` and `S` commands were evaluated.
 The grid is updated every in this way:
 
