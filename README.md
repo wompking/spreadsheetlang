@@ -117,3 +117,19 @@ S(0,2): (0,0) <= (0,1) $
 ```
 
 First, the `S` command evaluates. The first part of the `S` command is the position expression, which here is a single value and thus evaluates immediately. The second part of the command is the value expression, which here is a `$` operator called on a tuple. This gets the value at `(0,1)`, which has not been evaluated yet. Since this coordinate has an `I` command attached to it, it gets input from the user. When the user gives input, the command at `(0,1)` evaluates with a string. Then, since the value at `(0,1)` has evaluated, the `S` command at `(0,2)` evaluates. This sets the value at `(0,0)` to be whatever the user gave in. The program outputs what the user gave in, and then halts because no equations (apart from the one at `(0,0)`, which is ignored) have changed.
+
+## Installing
+
+Clone this repository or download [SPREADSHEET.py](https://raw.githubusercontent.com/wompking/spreadsheetlang/master/SPREADSHEET.py) directly.
+
+Either run using Python (version 3):
+
+```
+python3 SPREADSHEET.py <rogram.sprd>
+```
+
+Or, ensure that the file is executable and in your `PATH`:
+
+```
+SPREADSHEET.py <program.sprd>
+```
