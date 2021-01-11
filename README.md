@@ -5,7 +5,6 @@ A Psi-inspired and spreadsheet-like esoteric programming language.
 
 * [Introduction](https://github.com/wompking/spreadsheetlang/#introduction)
 * [Execution Model](https://github.com/wompking/spreadsheetlang/#execution-model)
-* [Syntax](https://github.com/wompking/spreadsheetlang/#syntax)
 * [Expressions and Operators](https://github.com/wompking/spreadsheetlang/#expressions-and-operators)
 * [Examples](https://github.com/wompking/spreadsheetlang/#examples)
 * [Installing](https://github.com/wompking/spreadsheetlang/#installing)
@@ -16,10 +15,20 @@ SPREADSHEET is a [Psi](https://github.com/Vazkii/Psi)-inspired and spreadsheet-l
 ## Execution Model
 The SPREADSHEET execution model consists of a grid of formulas, like a spreadsheet. The grid is unbounded in all four directions, and is updated once every **tick**.
 The formulas have a *command* attached to them, which is either `V`, `S`, `F`, or `I`.
-* The `V` command takes an expression and evaluates it. 
+* The `V` command defines an expression to be evaluated.
 * The `F` command takes two expressions, and sets the cell denoted by the first expression to a string containing a valid line of SPREADSHEET code.
 * The `S` command sets the cell denoted by the first expression to a `V` command containing the evaluated value of the second expression.
 * The `I` command takes input from the user.
+
+The SPREADSHEET program's lines describe the content of the grid.
+Every line of a SPREADSHEET program is of a specific format:
+
+```
+V<coordinate>: <expression>
+S<coordinate>: <expression> <= <expression>
+F<coordinate>: <expression> <= <expression>
+I<coordinate>
+```
 
 All changes to cells are applied at the end of the tick, in the order the `V` and `S` commands were evaluated.
 The grid is updated every in this way:
@@ -31,16 +40,7 @@ The grid is updated every in this way:
 * If the grid has not changed since the last tick, halt the program.
 
 To reiterate, every cell in a SPREADSHEET program is only evaluated **once per tick**; thus, if two cells depend on one `I` command, the user will only be prompted for input once.
-## Syntax
-Every line of a SPREADSHEET program is of a specific format:
 
-```
-V<coordinate>: <expression>
-S<coordinate>: <expression> <= <expression>
-F<coordinate>: <expression> <= <expression>
-I<coordinate>
-```
-The coordinate specifies where on the grid the command is.
 SPREADSHEET has **four data types**, being the number, the string, the tuple (or complex number), and None:
 ```
 Number: 10
