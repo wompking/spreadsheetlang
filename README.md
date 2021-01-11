@@ -3,10 +3,10 @@ A Psi-inspired and spreadsheet-like esoteric programming language.
 
 ## Table Of Contents
 
-* [Introduction](https://github.com/wompking/spreadsheetlang/blob/main/README.md#introduction)
-* [Syntax](https://github.com/wompking/hattrick/blob/main/README.md#syntax)
-* [Expressions and Operators](https://github.com/wompking/hattrick/blob/main/README.md#expressions-and-operators)
-* [Hat Pairs](https://github.com/wompking/hattrick/blob/main/README.md#hat-pairs)
+* [Introduction](https://github.com/wompking/spreadsheetlang/#introduction)
+* [Execution Model](https://github.com/wompking/spreadsheetlang/#execution-model)
+* [Syntax](https://github.com/wompking/spreadsheetlang/#syntax)
+* [Expressions and Operators](https://github.com/wompking/spreadsheetlang/#expressions-and-operators)
 
 ## Introduction
 SPREADSHEET is a Psi-inspired and spreadsheet-like esolang. Like [Hat Trick](https://github.com/wompking/tailorlang), it is evaluated using RPN. File extensions for SPREADSHEET programs are `.sprd`, and SPREADSHEET comments begin with `//`. SPREADSHEET, unlike [Tailor](https://github.com/wompking/tailorlang), is not forgiving, but it basically never throws errors anyways.
@@ -84,23 +84,23 @@ The following is a table of operators in SPREADSHEET. If some behaviour is not s
 | `X` | 3 | Python `C[A:B]` for strings. |
 | `@` | 0 | Gets the coordinates of this cell. |
 
-## Hat Pairs
-Hat pairs are the defining feature of Hat Trick; they allow for time travel and loops. The syntax to create a hat pair is:
+Here is a table of values for the `C` operator:
 
-```
-=> [<entrance hat name>|<exit hat name>]
-```
-
-When a value is read from the exit hat, the Hat Trick interpreter stores its internal state at that moment. When a value is then written to the entrance hat, the interpreter checks if the value most recently retrieved from the exit hat was the same as the value written to the entrance hat. If so, execution continues as normal. If not, the program rewinds back to the time the exit hat was read from, changes the value read from the exit hat to whatever was put in the entrance hat, and continues from there. For example:
-
-```
-=> [ent|ext]
-2 => ext
-ext => stdout
-3 => ent
-```
-
-would print `2`, and then `3`.
-
-Writing to the exit of a hat pair works as expected; the value inside the exit simply changes. When a value is read from the exit hat without anything being put into the entrance hat, null is produced.
-
+| From | To | Value |
+|----------|-------|----------|
+| Number | Number | Self-explanatory. |
+| Number | String | "<number>" |
+| Number | Tuple | (<number>,<number>) |
+| Number | None | None |
+| String | Number | Parses string into a number, base 10. |
+| String | String | Self-explanatory. |
+| String | Tuple | Parses string into a tuple. |
+| String | None | None |
+| Tuple | Number | Gets the magnitude of the tuple. |
+| Tuple | String | "<tuple>" |
+| Tuple | Tuple | Self-explanatory. |
+| Tuple | None | None |
+| None | Number | 0 |
+| None | String | "None" |
+| None | Tuple | (0,0) |
+| None | None | None |
