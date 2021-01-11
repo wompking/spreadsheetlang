@@ -8,6 +8,7 @@ A Psi-inspired and spreadsheet-like esoteric programming language.
 * [Syntax](https://github.com/wompking/spreadsheetlang/#syntax)
 * [Expressions and Operators](https://github.com/wompking/spreadsheetlang/#expressions-and-operators)
 * [Examples](https://github.com/wompking/spreadsheetlang/#examples)
+* [Installing](https://github.com/wompking/spreadsheetlang/#installing)
 
 ## Introduction
 SPREADSHEET is a Psi-inspired and spreadsheet-like esolang. Like [Hat Trick](https://github.com/wompking/tailorlang), it is evaluated using RPN. File extensions for SPREADSHEET programs are `.sprd`, and SPREADSHEET comments begin with `//`. SPREADSHEET, unlike [Tailor](https://github.com/wompking/tailorlang), is not forgiving, but it basically never throws errors anyways.
