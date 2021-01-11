@@ -23,7 +23,7 @@ The formulas have a *command* attached to them, which is either `V`, `S`, `F`, o
 All changes to cells are applied at the end of the tick, in the order the `V` and `S` commands were evaluated.
 The grid is updated every in this way:
 
-* Evaluate all cells with the `F` or `S` command first, with the distance from the center serving as the order, and counterclockwise angle as a tiebreaker.
+* Evaluate all cells with the `F` or `S` command first, with the distance from the center serving as the order, and counterclockwise angle about the origin as a tiebreaker.
   * If these cells depend on other cells that have not yet been evaluated this tick, evaluate those cells first.
 * Apply the changes made by the `F` and `S` commands to the grid.
 * If the cell `(0,0)` contains a value, output it to the user, and clear the cell.
