@@ -47,7 +47,7 @@ ops = {
 		(None,float):lambda a,b:0,(None,tuple):lambda a,b:(0,0),(None,str):lambda a,b:"None",\
 	}, None),
 	"?": (3, "special", None),
-	"X": (3, {(float,float,str):lambda a,b,c:c[a:b]}, None)
+	"X": (3, {(float,float,str):lambda a,b,c:c[int(a):int(b)]}, None)
 }
 tupleregex = r"^\((-?\d+(\.\d+)?),(-?\d+(\.\d+)?)\)$"
 floatregex = r"^(-?\d+(\.\d+)?)$"
